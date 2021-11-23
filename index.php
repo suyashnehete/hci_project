@@ -1,3 +1,6 @@
+<?php
+session_start(); 
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,29 +29,52 @@
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="./index.html">HOME</a>
+              <a class="nav-link active" aria-current="page" href="./index.php">HOME</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./falvours.html">FLAVOURS</a>
+              <a class="nav-link" href="./falvours.php">FLAVOURS</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./about.html">ABOUT</a>
-            </li>
+            <?php
+            if (isset($_SESSION['name'])){
+                        
+                        echo "<li class='nav-item'>
+              <a class='nav-link' href=''  data-bs-toggle='modal' data-bs-target='#orderHistory'>ORDERS</a>
+            </li>";
+                    
+                    }
+                    ?>
+            
           </ul>
           <span class="navbar-text d-lg-flex d-md-block">
             <div class="login d-flex justify-content-center align-items-center">
               <div class="nav-item">
-                <a class="nav-link" href="login.html"
+                <a class="nav-link" href="#"
                   ><i class="fa fa-user-circle" aria-hidden="true"></i
                 ></a>
                   </div>
                   <div class="nav-item">
-                    <a class="nav-link text" href="login.html"
-                      >Login</i
-                    ></a>
+                   
+                      
+                  <?php
+                            if (isset($_SESSION['name'])){
+
+                            echo "<div class='dropdown'>
+                            <button class='nav-link text dropdown-toggle' style='border: none;' id='dropdownMenuButton1' data-bs-toggle='dropdown' aria-expanded='false'>"
+                            .$_SESSION['name'].
+                            "</button>
+                            <ul class='dropdown-menu' aria-labelledby='dropdownMenuButton1'>
+                              <li><a class='dropdown-item' href='logout.php'>Logout</a></li>
+                            </ul>
+                          </div>";
+
+                            }
+                            else{
+                            echo "<a href='login.php' class='nav-link text '>Login</a> ";
+                            } ?>
+                    
                       </div>
             </div>
-            <div class="social d-flex  justify-content-center align-items-center">
+       <!--      <div class="social d-flex  justify-content-center align-items-center">
               <div class="nav-item">
                 <a class="nav-link" href="#"
                   ><i class="fab fa-facebook-f" aria-hidden="true"></i
@@ -64,7 +90,7 @@
                   ><i class="fab fa-instagram" aria-hidden="true"></i
                 ></a>
                   </div>
-            </div>
+            </div> -->
           </span>
         </div>
       </div>
@@ -79,7 +105,7 @@
       <div class="header-1-1">
         <div class="text-big1">HAND CRAFTED</div>
         <div class="text-big2">ICE CREAM</div>
-        <a href="./falvours.html"><div class="btn">MENU</div></a>
+        <a href="./falvours.php"><div class="btn">MENU</div></a>
       </div>
     </div>
     <div class="header-2">
@@ -97,7 +123,7 @@
               delectus! Suscipit molestias quasi illum autem quidem dignissimos
               dolorem, rem voluptatum ex deleniti impedit.
             </p>
-            <a href="./falvours.html"><div class="btn">MENU</div></a>
+            <a href="./falvours.php"><div class="btn">MENU</div></a>
           </div>
         </div>
       </div>
@@ -105,7 +131,7 @@
     <div class="header-3">
       <div class="text1">ENJOY</div>
       <div class="text2">DAIRY FREE</div>
-      <a href="./falvours.html"><div class="btn">MENU</div></a>
+      <a href="./falvours.php"><div class="btn">MENU</div></a>
     </div>
     <div class="header-4">
       <div class="row">
@@ -119,7 +145,7 @@
               delectus! Suscipit molestias quasi illum autem quidem dignissimos
               dolorem, rem voluptatum ex deleniti impedit.
             </p>
-            <a href="./falvours.html"><div class="btn">MENU</div></a>
+            <a href="./falvours.php"><div class="btn">MENU</div></a>
           </div>
         </div>
         <div class="ice col-lg-6 col-md-12">
@@ -147,7 +173,7 @@
               delectus! Suscipit molestias quasi illum autem quidem dignissimos
               dolorem, rem voluptatum ex deleniti impedit.
             </p>
-            <a href="./falvours.html"><div class="btn">MENU</div></a>
+            <a href="./falvours.php"><div class="btn">MENU</div></a>
           </div>
         </div>
       </div>
@@ -203,6 +229,56 @@
           </div>
         </div>
       </div>
+      <!-- this modal is for order history -->
+        <div class="modal fade" id="orderHistory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-dark" id="exampleModalLabel">Order History</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-dark">
+     <table class="table table-striped table-hover table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Sr.No</th>
+      <th scope="col">Item Name</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php
+    $count=0;
+    include 'config.php';
+    $email = $_SESSION['name'];
+    if ($result =mysqli_query($con,"SELECT * FROM orders WHERE email = '$email' ")) {
+      if ($row = mysqli_num_rows($result)>0) {
+        while ($data =mysqli_fetch_assoc($result)) {
+          $count++;
+          ?>
+           <tr>
+      <th scope="row"><?php echo $count; ?></th>
+      <td><?php echo $data['iname'] ?></td>
+      <td><?php echo $data['quantity'] ?></td>
+      <td><?php echo $data['status'] ?></td>
+    </tr>
+        <?php 
+      }
+      }
+    }
+    ?>
+ 
+    
+  </tbody>
+</table>
+      </div>
+      <div class="modal-footer">
+        <a href="" class="btn btn-secondary" data-bs-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
       <div class="copyright">&copy; Group 13</div>
     </div>
     <script src="./js/jquery.js"></script>
@@ -210,3 +286,4 @@
     <script src="./js/all.min.js"></script>
   </body>
 </html>
+
