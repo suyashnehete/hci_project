@@ -7,7 +7,7 @@
    $mobile = $_POST['mobile'];
    $location = $_POST['location'];
    $flavour = $_POST['flavour'];
-   if (mysqli_query($con,"INSERT INTO orders VALUES (NULL,'$email','$quantity','$mobile','$location','Pending','Strawberry') ")) {
+   if (mysqli_query($con,"INSERT INTO orders VALUES (NULL,'$email','$quantity','$mobile','$location','Pending','$flavour') ")) {
       echo "<script>alert('Your order is place successfully. expected delivery time is 30-40 mins');</script>";
    }else{
     echo  mysqli_error($con);
@@ -21,11 +21,14 @@
 <script>
     var flavourName = "";
     function setFlavour(flavour){
-        flavourName = flavour;
+        flavourName = flavour.replace("&nbsp;", " ");
+        console.log(flavourName);
+        getFlavour();
     }
 
     function getFlavour(){
         document.getElementById("hidden").value = flavourName;
+        console.log(flavourName);
     }
 </script>
 
@@ -111,16 +114,35 @@
         <div class="dash"></div>
         <div class="data d-flex justify-content-center align-items-center flex-wrap">
             <div class="item d-flex justify-content-center align-items-center flex-column">
-                <img src="./img/ice-cream3.webp" alt="" srcset="">
-                <div class="text2">Strawberry</div>
+                <img src="./img/file.webp" alt="" srcset="">
+                <div class="text2">OREO</div>
                 <div class="dash1"></div>
-                <p>Strawberry ice cream is a flavor of ice cream made with strawberry or strawberry flavoring. </p>
-                <div class="text2">Rs. 39</div>
+                <p>Oreo ice cream is a flavor of ice cream made with oreo or oreo flavoring. </p>
+                <div class="text2">Rs. 60</div>
 
                 <?php 
                        if (isset($_SESSION['name'])){
                         
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("OREO")>Buy Now</button>';
+                      }
+                      else{
+                        echo "<a href='login.php'  class='nav-link text'>Need to Login</a> ";
+                      }  ?>
+
+
+            </div>
+
+            <div class="item d-flex justify-content-center align-items-center flex-column">
+                <img src="./img/file1.webp" alt="" srcset="">
+                <div class="text2">CHOCOLATE & SEA SALT</div>
+                <div class="dash1"></div>
+                <p>Chocolate & Sea Salt ice cream is a flavor of ice cream made with chocolate or chocolate flavoring. </p>
+                <div class="text2">Rs. 60</div>
+
+                <?php 
+                       if (isset($_SESSION['name'])){
+                        
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("CHOCOLATE&nbsp;&&nbsp;SEA&nbsp;SALT")>
 Buy Now
 </button>';
                       }
@@ -132,16 +154,16 @@ Buy Now
             </div>
 
             <div class="item d-flex justify-content-center align-items-center flex-column">
-                <img src="./img/ice-cream3.webp" alt="" srcset="">
-                <div class="text2">Strawberry</div>
+                <img src="./img/file2.webp" alt="" srcset="">
+                <div class="text2">VANILLA STRABERRY</div>
                 <div class="dash1"></div>
-                <p>Strawberry ice cream is a flavor of ice cream made with strawberry or strawberry flavoring. </p>
-                <div class="text2">Rs. 39</div>
+                <p>Vanilla strawberry ice cream is a flavor of ice cream made with strawberry or strawberry flavoring. </p>
+                <div class="text2">Rs. 60</div>
 
                 <?php 
                        if (isset($_SESSION['name'])){
                         
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("VANILLA&nbsp;STRABERRY")>
 Buy Now
 </button>';
                       }
@@ -153,16 +175,16 @@ Buy Now
             </div>
 
             <div class="item d-flex justify-content-center align-items-center flex-column">
-                <img src="./img/ice-cream3.webp" alt="" srcset="">
-                <div class="text2">Strawberry</div>
+                <img src="./img/file3.webp" alt="" srcset="">
+                <div class="text2">CHERRY CHEESECAKE</div>
                 <div class="dash1"></div>
-                <p>Strawberry ice cream is a flavor of ice cream made with strawberry or strawberry flavoring. </p>
-                <div class="text2">Rs. 39</div>
+                <p>Cherry Cheesecake ice cream is a flavor of ice cream made with cherry or cherry flavoring. </p>
+                <div class="text2">Rs. 60</div>
 
                 <?php 
                        if (isset($_SESSION['name'])){
                         
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("CHERRY&nbsp;CHEESECAKE")>
 Buy Now
 </button>';
                       }
@@ -174,16 +196,16 @@ Buy Now
             </div>
 
             <div class="item d-flex justify-content-center align-items-center flex-column">
-                <img src="./img/ice-cream3.webp" alt="" srcset="">
-                <div class="text2">Strawberry</div>
+                <img src="./img/file4.webp" alt="" srcset="">
+                <div class="text2">PISTACHIO</div>
                 <div class="dash1"></div>
-                <p>Strawberry ice cream is a flavor of ice cream made with strawberry or strawberry flavoring. </p>
-                <div class="text2">Rs. 39</div>
+                <p>Pistachio ice cream is a flavor of ice cream made with pistachio or pistachio flavoring. </p>
+                <div class="text2">Rs. 60</div>
 
                 <?php 
                        if (isset($_SESSION['name'])){
                         
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("PISTACHIO")>
 Buy Now
 </button>';
                       }
@@ -195,16 +217,16 @@ Buy Now
             </div>
 
             <div class="item d-flex justify-content-center align-items-center flex-column">
-                <img src="./img/ice-cream3.webp" alt="" srcset="">
-                <div class="text2">Strawberry</div>
+                <img src="./img/file5.webp" alt="" srcset="">
+                <div class="text2">HAZELNUT & COOKIES</div>
                 <div class="dash1"></div>
-                <p>Strawberry ice cream is a flavor of ice cream made with strawberry or strawberry flavoring. </p>
-                <div class="text2">Rs. 39</div>
+                <p>Hazlenuts & cookies ice cream is a flavor of ice cream made with hazlenuts or hazlenuts flavoring. </p>
+                <div class="text2">Rs. 60</div>
 
                 <?php 
                        if (isset($_SESSION['name'])){
                         
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("HAZELNUT&nbsp;&&nbsp;COOKIES")>
 Buy Now
 </button>';
                       }
@@ -216,16 +238,16 @@ Buy Now
             </div>
 
             <div class="item d-flex justify-content-center align-items-center flex-column">
-                <img src="./img/ice-cream3.webp" alt="" srcset="">
-                <div class="text2">Strawberry</div>
+                <img src="./img/file6.webp" alt="" srcset="">
+                <div class="text2">SALTED CARAMEL SOY</div>
                 <div class="dash1"></div>
-                <p>Strawberry ice cream is a flavor of ice cream made with strawberry or strawberry flavoring. </p>
-                <div class="text2">Rs. 39</div>
+                <p>Salted caramel soy ice cream is a flavor of ice cream made with caramel or caramel flavoring. </p>
+                <div class="text2">Rs. 100</div>
 
                 <?php 
                        if (isset($_SESSION['name'])){
                         
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("SALTED&nbsp;CARAMEL&nbsp;SOY")>
 Buy Now
 </button>';
                       }
@@ -237,16 +259,16 @@ Buy Now
             </div>
 
             <div class="item d-flex justify-content-center align-items-center flex-column">
-                <img src="./img/ice-cream3.webp" alt="" srcset="">
-                <div class="text2">Strawberry</div>
+                <img src="./img/file7.webp" alt="" srcset="">
+                <div class="text2">BRAMBLEBERRY SORBET</div>
                 <div class="dash1"></div>
-                <p>Strawberry ice cream is a flavor of ice cream made with strawberry or strawberry flavoring. </p>
-                <div class="text2">Rs. 39</div>
+                <p>Brambleberry sorbet ice cream is a flavor of ice cream made with brambleberry or brambleberry flavoring. </p>
+                <div class="text2">Rs. 100</div>
 
                 <?php 
                        if (isset($_SESSION['name'])){
                         
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("BRAMBLEBERRY&nbsp;SORBET")>
 Buy Now
 </button>';
                       }
@@ -258,16 +280,16 @@ Buy Now
             </div>
 
             <div class="item d-flex justify-content-center align-items-center flex-column">
-                <img src="./img/ice-cream3.webp" alt="" srcset="">
-                <div class="text2">Strawberry</div>
+                <img src="./img/file8.webp" alt="" srcset="">
+                <div class="text2">BANANA & HONEY</div>
                 <div class="dash1"></div>
-                <p>Strawberry ice cream is a flavor of ice cream made with strawberry or strawberry flavoring. </p>
-                <div class="text2">Rs. 39</div>
+                <p>Banana and honey ice cream is a flavor of ice cream made with banana and honey or banana and honey flavoring. </p>
+                <div class="text2">Rs. 100</div>
 
                 <?php 
                        if (isset($_SESSION['name'])){
                         
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("BANANA&nbsp;&&nbsp;HONEY")>
 Buy Now
 </button>';
                       }
@@ -279,16 +301,16 @@ Buy Now
             </div>
 
             <div class="item d-flex justify-content-center align-items-center flex-column">
-                <img src="./img/ice-cream3.webp" alt="" srcset="">
-                <div class="text2">Strawberry</div>
+                <img src="./img/file9.webp" alt="" srcset="">
+                <div class="text2">RASPBERRY SORBET</div>
                 <div class="dash1"></div>
-                <p>Strawberry ice cream is a flavor of ice cream made with strawberry or strawberry flavoring. </p>
-                <div class="text2">Rs. 39</div>
+                <p>Raspberry sorbet ice cream is a flavor of ice cream made with raspberry or raspberry flavoring. </p>
+                <div class="text2">Rs. 100</div>
 
                 <?php 
                        if (isset($_SESSION['name'])){
                         
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("RASPBERRY&nbsp;SORBET")>
 Buy Now
 </button>';
                       }
@@ -300,16 +322,16 @@ Buy Now
             </div>
 
             <div class="item d-flex justify-content-center align-items-center flex-column">
-                <img src="./img/ice-cream3.webp" alt="" srcset="">
-                <div class="text2">Strawberry</div>
+                <img src="./img/file10.webp" alt="" srcset="">
+                <div class="text2">STRAWBERRY & COCONUT</div>
                 <div class="dash1"></div>
-                <p>Strawberry ice cream is a flavor of ice cream made with strawberry or strawberry flavoring. </p>
-                <div class="text2">Rs. 39</div>
+                <p>Strawberry and coconut ice cream is a flavor of ice cream made with strawberry and coconut or strawberry and coconut flavoring. </p>
+                <div class="text2">Rs. 100</div>
 
                 <?php 
                        if (isset($_SESSION['name'])){
                         
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("STRAWBERRY&nbsp;&&nbsp;COCONUT")>
 Buy Now
 </button>';
                       }
@@ -321,16 +343,16 @@ Buy Now
             </div>
 
             <div class="item d-flex justify-content-center align-items-center flex-column">
-                <img src="./img/ice-cream3.webp" alt="" srcset="">
-                <div class="text2">Strawberry</div>
+                <img src="./img/file11.webp" alt="" srcset="">
+                <div class="text2">LIME SORBET</div>
                 <div class="dash1"></div>
-                <p>Strawberry ice cream is a flavor of ice cream made with strawberry or strawberry flavoring. </p>
-                <div class="text2">Rs. 39</div>
+                <p>Lime sorbet ice cream is a flavor of ice cream made with lime or limw flavoring. </p>
+                <div class="text2">Rs. 100</div>
 
                 <?php 
                        if (isset($_SESSION['name'])){
                         
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("LIME&nbsp;SORBET")>
 Buy Now
 </button>';
                       }
@@ -341,131 +363,7 @@ Buy Now
 
             </div>
 
-            <div class="item d-flex justify-content-center align-items-center flex-column">
-                <img src="./img/ice-cream3.webp" alt="" srcset="">
-                <div class="text2">Strawberry</div>
-                <div class="dash1"></div>
-                <p>Strawberry ice cream is a flavor of ice cream made with strawberry or strawberry flavoring. </p>
-                <div class="text2">Rs. 39</div>
-
-                <?php 
-                       if (isset($_SESSION['name'])){
-                        
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
-Buy Now
-</button>';
-                      }
-                      else{
-                        echo "<a href='login.php'  class='nav-link text'>Need to Login</a> ";
-                      }  ?>
-
-
-            </div>
-
-            <div class="item d-flex justify-content-center align-items-center flex-column">
-                <img src="./img/ice-cream3.webp" alt="" srcset="">
-                <div class="text2">Strawberry</div>
-                <div class="dash1"></div>
-                <p>Strawberry ice cream is a flavor of ice cream made with strawberry or strawberry flavoring. </p>
-                <div class="text2">Rs. 39</div>
-
-                <?php 
-                       if (isset($_SESSION['name'])){
-                        
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
-Buy Now
-</button>';
-                      }
-                      else{
-                        echo "<a href='login.php'  class='nav-link text'>Need to Login</a> ";
-                      }  ?>
-
-
-            </div>
-
-            <div class="item d-flex justify-content-center align-items-center flex-column">
-                <img src="./img/ice-cream3.webp" alt="" srcset="">
-                <div class="text2">Strawberry</div>
-                <div class="dash1"></div>
-                <p>Strawberry ice cream is a flavor of ice cream made with strawberry or strawberry flavoring. </p>
-                <div class="text2">Rs. 39</div>
-
-                <?php 
-                       if (isset($_SESSION['name'])){
-                        
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
-Buy Now
-</button>';
-                      }
-                      else{
-                        echo "<a href='login.php'  class='nav-link text'>Need to Login</a> ";
-                      }  ?>
-
-
-            </div>
-
-            <div class="item d-flex justify-content-center align-items-center flex-column">
-                <img src="./img/ice-cream3.webp" alt="" srcset="">
-                <div class="text2">Strawberry</div>
-                <div class="dash1"></div>
-                <p>Strawberry ice cream is a flavor of ice cream made with strawberry or strawberry flavoring. </p>
-                <div class="text2">Rs. 39</div>
-
-                <?php 
-                       if (isset($_SESSION['name'])){
-                        
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
-Buy Now
-</button>';
-                      }
-                      else{
-                        echo "<a href='login.php'  class='nav-link text'>Need to Login</a> ";
-                      }  ?>
-
-
-            </div>
-
-            <div class="item d-flex justify-content-center align-items-center flex-column">
-                <img src="./img/ice-cream3.webp" alt="" srcset="">
-                <div class="text2">Strawberry</div>
-                <div class="dash1"></div>
-                <p>Strawberry ice cream is a flavor of ice cream made with strawberry or strawberry flavoring. </p>
-                <div class="text2">Rs. 39</div>
-
-                <?php 
-                       if (isset($_SESSION['name'])){
-                        
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
-Buy Now
-</button>';
-                      }
-                      else{
-                        echo "<a href='login.php'  class='nav-link text'>Need to Login</a> ";
-                      }  ?>
-
-
-            </div>
-
-            <div class="item d-flex justify-content-center align-items-center flex-column">
-                <img src="./img/ice-cream3.webp" alt="" srcset="">
-                <div class="text2">Strawberry</div>
-                <div class="dash1"></div>
-                <p>Strawberry ice cream is a flavor of ice cream made with strawberry or strawberry flavoring. </p>
-                <div class="text2">Rs. 39</div>
-
-                <?php 
-                       if (isset($_SESSION['name'])){
-                        
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
-Buy Now
-</button>';
-                      }
-                      else{
-                        echo "<a href='login.php'  class='nav-link text'>Need to Login</a> ";
-                      }  ?>
-
-
-            </div>
+            
         </div>
     </div>
     <div class="footer">
@@ -521,7 +419,6 @@ Buy Now
                                 min="10" max="10" required>
                         </div>
                         <input type="hidden" class="form-control" id="hidden" required name="flavour">
-                        <script>getFlavour();</script>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Please Enter Your Google Map Location
                                 Link</label>
