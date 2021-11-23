@@ -99,11 +99,11 @@
     </nav>
     <div class="header-address">
         <h4>
-            500 Terry Francois Street San Francisco, CA 94158 | Daily 10AM-10PM
+        Shop No 1, Mariplex Mall, Marigold, Near Axis Bank, Kalyani Nagar, Pune-411014 | Daily 10AM-10PM
         </h4>
     </div>
     <div class="flavour-1">
-        <div class="flavour-1-2">Ice Cream Shop</div>
+        <div class="flavour-1-2">Ice Corner</div>
         <div class="flavour-1-1">
             <div class="text-big1">OUR</div>
             <div class="text-big2">FLAVOURS</div>
@@ -369,11 +369,8 @@ Buy Now
     <div class="footer">
         <div class="row">
             <div class="address col-md-6 col-sm-12 col-12">
-                Cecilia Chapman<br />
-                711-2880 Nulla St.<br />
-                Mankato Mississippi 96522<br />
-                (257) 563-7401
-            </div>
+            Shop No 1, Mariplex Mall,<br>Marigold, Near Axis Bank,<br>Kalyani Nagar, Pune-411014<br />
+                +91 9836452618           </div>
             <div class="social col-sm-12 col-md-6 col-12">
                 Social
                 <div class="row">

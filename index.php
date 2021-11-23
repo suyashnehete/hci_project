@@ -97,11 +97,11 @@ session_start();
     </nav>
     <div class="header-address">
       <h4>
-        500 Terry Francois Street San Francisco, CA 94158 | Daily 10AM-10PM
+      Shop No 1, Mariplex Mall, Marigold, Near Axis Bank, Kalyani Nagar, Pune-411014 | Daily 10AM-10PM
       </h4>
     </div>
     <div class="header-1">
-      <div class="header-1-2">Ice Cream Shop</div>
+      <div class="header-1-2">Ice Corner</div>
       <div class="header-1-1">
         <div class="text-big1">HAND CRAFTED</div>
         <div class="text-big2">ICE CREAM</div>
@@ -118,10 +118,7 @@ session_start();
             <div class="text1">OUR FLAVORS</div>
             <div class="text2">Fresh n Tasty!</div>
             <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis
-              quaerat ipsa consequuntur distinctio cupiditate quod corrupti
-              delectus! Suscipit molestias quasi illum autem quidem dignissimos
-              dolorem, rem voluptatum ex deleniti impedit.
+            Rich and luscious in nature with extraordinary inclusions, Treat scoops are our special range that are made so that you can indulge a bit more. We try to add a special touch to your happiness with our specially prepared range of novelties.
             </p>
             <a href="./falvours.php"><div class="btn">MENU</div></a>
           </div>
@@ -140,10 +137,7 @@ session_start();
             <div class="text1">OUR PLACE</div>
             <div class="text2">Ice cream by the sea</div>
             <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis
-              quaerat ipsa consequuntur distinctio cupiditate quod corrupti
-              delectus! Suscipit molestias quasi illum autem quidem dignissimos
-              dolorem, rem voluptatum ex deleniti impedit.
+            Weddings, birthdays, anniversaries, or any get-together; memorable occasions deserve mouth-watering flavours. So, place a Party Order, and we’ll bring to the bowl a variety of ice cream flavours that compliments every event. Ice Corner adds MORE scoops of sweetness to all your celebrations.
             </p>
             <a href="./falvours.php"><div class="btn">MENU</div></a>
           </div>
@@ -168,10 +162,7 @@ session_start();
             <div class="text1">DESSERTS</div>
             <div class="text2">Ice cream goodies</div>
             <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis
-              quaerat ipsa consequuntur distinctio cupiditate quod corrupti
-              delectus! Suscipit molestias quasi illum autem quidem dignissimos
-              dolorem, rem voluptatum ex deleniti impedit.
+            With their tangy, tantalizing and yummy taste, they are relished by young as well as the old. Treat an impressive range of more than 10 lip-smacking flavours. The wide ranges of sundaes are topped with tempting ripples and fresh ingredients which makes eating them a heavenly experience.
             </p>
             <a href="./falvours.php"><div class="btn">MENU</div></a>
           </div>
@@ -201,34 +192,27 @@ session_start();
       </div>
     </div>
     <div class="footer">
-      <div class="row">
-        <div class="address col-md-6 col-sm-12 col-12">
-          Cecilia Chapman<br />
-          711-2880 Nulla St.<br />
-          Mankato Mississippi 96522<br />
-          (257) 563-7401
+        <div class="row">
+            <div class="address col-md-6 col-sm-12 col-12">
+            Shop No 1, Mariplex Mall,<br>Marigold, Near Axis Bank,<br>Kalyani Nagar, Pune-411014<br />
+                +91 9836452618           </div>
+            <div class="social col-sm-12 col-md-6 col-12">
+                Social
+                <div class="row">
+                    <div>
+                        <a href="http://"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                    </div>
+                    <div>
+                        <a href="http://"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                    </div>
+                    <div>
+                        <a href="http://"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="social col-sm-12 col-md-6 col-12">
-          Social
-          <div class="row">
-            <div>
-              <a href="http://"
-                ><i class="fab fa-whatsapp" aria-hidden="true"></i
-              ></a>
-            </div>
-            <div>
-              <a href="http://"
-                ><i class="fab fa-facebook-f" aria-hidden="true"></i
-              ></a>
-            </div>
-            <div>
-              <a href="http://"
-                ><i class="fab fa-instagram" aria-hidden="true"></i
-              ></a>
-            </div>
-          </div>
-        </div>
-      </div>
+        <div class="copyright">&copy; Group 13</div>
+    </div>
       <!-- this modal is for order history -->
         <div class="modal fade" id="orderHistory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
