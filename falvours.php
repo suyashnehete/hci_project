@@ -20,15 +20,26 @@
 
 <script>
     var flavourName = "";
+    var flavourImage = "";
+    var flavourAmount = "";
     function setFlavour(flavour){
-        flavourName = flavour.replace("&nbsp;", " ");
+        console.log(flavour)
+        flavourName = flavour.replace("&nbsp;", " ").split("!")[0];
+        flavourImage = flavour.replace("&nbsp;", " ").split("!")[1];
+        flavourAmount = flavour.replace("&nbsp;", " ").split("!")[2];
         console.log(flavourName);
+        console.log(flavourImage);
+        console.log(flavourAmount);
         getFlavour();
     }
 
     function getFlavour(){
         document.getElementById("hidden").value = flavourName;
+        document.getElementById("hidden1").value = flavourImage;
+        document.getElementById("hidden2").value = flavourAmount;
         console.log(flavourName);
+        console.log(flavourImage);
+        console.log(flavourAmount);
     }
 </script>
 
@@ -123,7 +134,7 @@
                 <?php 
                        if (isset($_SESSION['name'])){
                         
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("OREO")>Buy Now</button>';
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("OREO!./img/file.webp!60")>Buy Now</button>';
                       }
                       else{
                         echo "<a href='login.php'  class='nav-link text'>Need to Login</a> ";
@@ -142,9 +153,7 @@
                 <?php 
                        if (isset($_SESSION['name'])){
                         
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("CHOCOLATE&nbsp;&&nbsp;SEA&nbsp;SALT")>
-Buy Now
-</button>';
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("CHOCOLATE&nbsp;&&nbsp;SEA&nbsp;SALT!./img/file1.webp!60",)>Buy Now</button>';
                       }
                       else{
                         echo "<a href='login.php'  class='nav-link text'>Need to Login</a> ";
@@ -163,7 +172,7 @@ Buy Now
                 <?php 
                        if (isset($_SESSION['name'])){
                         
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("VANILLA&nbsp;STRABERRY")>
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("VANILLA&nbsp;STRABERRY!./img/file2.webp!60")>
 Buy Now
 </button>';
                       }
@@ -184,7 +193,7 @@ Buy Now
                 <?php 
                        if (isset($_SESSION['name'])){
                         
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("CHERRY&nbsp;CHEESECAKE")>
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("CHERRY&nbsp;CHEESECAKE!./img/file3.webp!60")>
 Buy Now
 </button>';
                       }
@@ -205,7 +214,7 @@ Buy Now
                 <?php 
                        if (isset($_SESSION['name'])){
                         
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("PISTACHIO")>
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("PISTACHIO!./img/file4.webp!60")>
 Buy Now
 </button>';
                       }
@@ -226,7 +235,7 @@ Buy Now
                 <?php 
                        if (isset($_SESSION['name'])){
                         
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("HAZELNUT&nbsp;&&nbsp;COOKIES")>
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("HAZELNUT&nbsp;&&nbsp;COOKIES!./img/file5.webp!60")>
 Buy Now
 </button>';
                       }
@@ -247,7 +256,7 @@ Buy Now
                 <?php 
                        if (isset($_SESSION['name'])){
                         
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("SALTED&nbsp;CARAMEL&nbsp;SOY")>
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("SALTED&nbsp;CARAMEL&nbsp;SOY!./img/file6.webp!100")>
 Buy Now
 </button>';
                       }
@@ -268,7 +277,7 @@ Buy Now
                 <?php 
                        if (isset($_SESSION['name'])){
                         
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("BRAMBLEBERRY&nbsp;SORBET")>
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("BRAMBLEBERRY&nbsp;SORBET!./img/file7.webp!100")>
 Buy Now
 </button>';
                       }
@@ -289,7 +298,7 @@ Buy Now
                 <?php 
                        if (isset($_SESSION['name'])){
                         
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("BANANA&nbsp;&&nbsp;HONEY")>
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("BANANA&nbsp;&&nbsp;HONEY!./img/file8.webp!100")>
 Buy Now
 </button>';
                       }
@@ -310,7 +319,7 @@ Buy Now
                 <?php 
                        if (isset($_SESSION['name'])){
                         
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("RASPBERRY&nbsp;SORBET")>
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("RASPBERRY&nbsp;SORBET!./img/file9.webp!100")>
 Buy Now
 </button>';
                       }
@@ -331,7 +340,7 @@ Buy Now
                 <?php 
                        if (isset($_SESSION['name'])){
                         
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("STRAWBERRY&nbsp;&&nbsp;COCONUT")>
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("STRAWBERRY&nbsp;&&nbsp;COCONUT!./img/file10.webp!100")>
 Buy Now
 </button>';
                       }
@@ -352,7 +361,7 @@ Buy Now
                 <?php 
                        if (isset($_SESSION['name'])){
                         
-                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("LIME&nbsp;SORBET")>
+                          echo ' <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=setFlavour("LIME&nbsp;SORBET!./img/file11.webp!100")>
 Buy Now
 </button>';
                       }
@@ -397,7 +406,7 @@ Buy Now
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form method="POST">
+                    <form method="POST" action="checkout.php">
                         <div class="mb-3">
                             <fieldset disabled>
                                 <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -416,6 +425,8 @@ Buy Now
                                 min="10" max="10" required>
                         </div>
                         <input type="hidden" class="form-control" id="hidden" required name="flavour">
+                        <input type="hidden" class="form-control" id="hidden1" required name="image">
+                        <input type="hidden" class="form-control" id="hidden2" required name="amount">
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Please Enter Your Google Map Location
                                 Link</label>
@@ -427,7 +438,7 @@ Buy Now
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
 
                 </div>
             </div>
@@ -514,10 +525,19 @@ Buy Now
           $count++;
           ?>
                             <tr>
-                                <th scope="row"><?php echo $count; ?></th>
-                                <td><?php echo $data['iname'] ?></td>
-                                <td><?php echo $data['quantity'] ?></td>
-                                <td><?php echo $data['status'] ?></td>
+                            <form method="POST" action="checkout.php">
+      <th scope="row"><?php echo $count; ?></th>
+      <td><?php echo $data['iname'] ?></td>
+      <td><?php echo $data['quantity'] ?></td>
+      <td><?php echo $data['status'] ?></td>
+      <input type="hidden" name="mobile" value="<?php echo $data['mobile']; ?>">
+    <input type="hidden" name="quantity" value="<?php echo $data['quantity']; ?>">
+    <input type="hidden" name="location" value="<?php echo $data['location']; ?>">
+    <input type="hidden" name="flavour" value="<?php echo $data['iname']; ?>">
+    <input type="hidden" name="amount" value="<?php echo $data['payment']; ?>">
+    <input type="hidden" name="image" value="./img/file.webp">
+      <td><button type="submit" class="btn btn-dark" name="btn_order">REORDER</button></td>
+        </form>
                             </tr>
                             <?php 
       }

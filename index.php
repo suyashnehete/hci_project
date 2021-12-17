@@ -1,6 +1,23 @@
 <?php
+include 'config.php';
 session_start(); 
+$email = $_SESSION['name'];
+   $quantity = $_POST['quantity'];
+   $mobile = $_POST['mobile'];
+   $location = $_POST['location'];
+   $flavour = $_POST['flavour'];
+   $amount = $_POST['amount'];
+
+  if($quantity!=''){
+    if (mysqli_query($con,"INSERT INTO orders VALUES (NULL,'$email','$quantity','$mobile','$location','Completed','$flavour','$amount') ")) {
+      echo "<script>alert('Your order is place successfully. expected delivery time is 30-40 mins');</script>";
+         }else{
+          echo  mysqli_error($con);
+         }
+    }
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -176,19 +193,19 @@ session_start();
     <div class="header-7">
       <div class="img-wrap">
         <img src="./img/01.jpg" />
-        <div class="description">#hello</div>
+        <div class="description">#OREO</div>
       </div>
       <div class="img-wrap">
         <img src="./img/02.jpg" />
-        <div class="description">#hello</div>
+        <div class="description">#CHOCOLATE & SEA SALT</div>
       </div>
       <div class="img-wrap">
         <img src="./img/03.jpg" />
-        <div class="description">#hello</div>
+        <div class="description">#VANILLA STRABERRY</div>
       </div>
       <div class="img-wrap">
         <img src="./img/04.jpg" />
-        <div class="description">#hello</div>
+        <div class="description">#CHERRY CHEESECAKE</div>
       </div>
     </div>
     <div class="footer">
@@ -229,6 +246,7 @@ session_start();
       <th scope="col">Item Name</th>
       <th scope="col">Quantity</th>
       <th scope="col">Status</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -242,10 +260,19 @@ session_start();
           $count++;
           ?>
            <tr>
+           <form method="POST" action="checkout.php">
       <th scope="row"><?php echo $count; ?></th>
       <td><?php echo $data['iname'] ?></td>
       <td><?php echo $data['quantity'] ?></td>
       <td><?php echo $data['status'] ?></td>
+      <input type="hidden" name="mobile" value="<?php echo $data['mobile']; ?>">
+    <input type="hidden" name="quantity" value="<?php echo $data['quantity']; ?>">
+    <input type="hidden" name="location" value="<?php echo $data['location']; ?>">
+    <input type="hidden" name="flavour" value="<?php echo $data['iname']; ?>">
+    <input type="hidden" name="amount" value="<?php echo $data['payment']; ?>">
+    <input type="hidden" name="image" value="./img/file.webp">
+      <td><button type="submit" class="btn btn-dark" name="btn_order">REORDER</button></td>
+        </form>
     </tr>
         <?php 
       }
