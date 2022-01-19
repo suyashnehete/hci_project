@@ -1156,4 +1156,7 @@ nav .login .nav-link.text {
   font-weight: 600;
   border: 2px solid black;
 }
+.remove-weight{
+  font-weight: 400
+}
 /*# sourceMappingURL=style.css.map */

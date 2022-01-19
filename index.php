@@ -231,7 +231,7 @@ $email = $_SESSION['name'];
         <div class="copyright">&copy; Group 13</div>
     </div>
       <!-- this modal is for order history -->
-        <div class="modal fade" id="orderHistory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade w-70" id="orderHistory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -290,7 +290,6 @@ $email = $_SESSION['name'];
     </div>
   </div>
 </div>
-      <div class="copyright">&copy; Group 13</div>
     </div>
     <script src="./js/jquery.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
